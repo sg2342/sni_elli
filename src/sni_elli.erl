@@ -176,6 +176,7 @@ mime_types3() ->
      {"swf","application/x-shockwave-flash"},
      {"shar","application/x-shar"},
      {"sh","application/x-sh"},
+     {"rdp","application/x-rdp"},
      {"nc","application/x-netcdf"},
      {"cdf","application/x-netcdf"},
      {"latex","application/x-latex"},
