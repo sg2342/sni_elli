@@ -48,10 +48,15 @@ handle(#req{ }, _) -> {403, [], <<"Forbidden">>}.
 
 
 handle1(false) -> {403, [], <<"Forbidden">>};
-handle1(Path) -> handle2(elli_util:file_size(Path), Path).
+handle1(Path) -> handle2(filelib:is_dir(Path), Path).
 
-handle2({error, _}, _Path) -> {404, [], <<"Not Found">>};
-handle2(Size, Path) ->
+handle2(false, Path) -> handle3(elli_util:file_size(Path), Path);
+handle2(true, P0) ->
+    Path = filename:join(P0, "index.html"),
+    handle3(elli_util:file_size(Path), Path).
+
+handle3({error, _}, _Path) -> {404, [], <<"Not Found">>};
+handle3(Size, Path) ->
     {ok, [{"Content-Length", Size} | mime_type(Path)], {file, Path}}.
 
 

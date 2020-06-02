@@ -1,5 +1,7 @@
 %% -*- erlang -*-
-{"0.1.1",
- [{"0.1.0", [{load_module, sni_elli}]}],
- [{"0.1.0", [{load_module, sni_elli}]}]
+{"0.1.2",
+ [{"0.1.0", [{load_module, sni_elli}]},
+  {"0.1.1", [{load_module, sni_elli}]}],
+ [{"0.1.0", [{load_module, sni_elli}]},
+  {"0.1.1", [{load_module, sni_elli}]}]
 }.
