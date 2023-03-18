@@ -1,17 +1,22 @@
-{application, sni_elli,
- [ {description, "snierl proxy to elli"}
- , {vsn, git}
- , {registered, [sni_elli_sup]}
- , {mod, {sni_elli_app, []}}
- , {applications, [kernel, stdlib, snierl]}
- , {env,[{top_dir, "/opt/www"}
-	,{elli_opts, [{request_timeout, 60000}
-		     ,{header_timeout, 10000}
-		     ,{body_timeout, 30000}
-		     ,{max_body_size, 1024000}]}]}
- , {modules, [sni_elli
-	     ,sni_elli_app
-	     ,sni_elli_sup
-	     ]},
-  {links, []}
- ]}.
+{application, sni_elli, [
+    {description, "snierl proxy to elli"},
+    {vsn, git},
+    {registered, [sni_elli_sup]},
+    {mod, {sni_elli_app, []}},
+    {applications, [kernel, stdlib, snierl]},
+    {env, [
+        {top_dir, "/opt/www"},
+        {elli_opts, [
+            {request_timeout, 60000},
+            {header_timeout, 10000},
+            {body_timeout, 30000},
+            {max_body_size, 1024000}
+        ]}
+    ]},
+    {modules, [
+        sni_elli,
+        sni_elli_app,
+        sni_elli_sup
+    ]},
+    {links, []}
+]}.
